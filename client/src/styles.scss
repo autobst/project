@@ -1,1 +1,159 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  color: #cecece;
+  background: url(/loginbg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+:focus {
+  outline: unset !important;
+}
+
+input,
+input:focus {
+  outline: none;
+  outline-offset: unset;
+  color: #cecece;
+}
+
+input,
+button {
+  border-radius: 5px;
+  border: 1px solid #000000;
+  border-bottom: 1px solid #1d1d1d;
+  padding: 0 0 0 15px;
+}
+
+@-webkit-keyframes autofill {
+  to {
+    color: #cecece;
+    background: #080808;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+input[type="button"],
+button {
+  padding: 10px 20px;
+  background-image: linear-gradient(#2a2a2a, #131313);
+  cursor: pointer;
+  color: #cecece;
+}
+
+input[type="button"]:hover,
+button:hover {
+  border: 1px solid #1d1d1d;
+}
+
+input[type="button"]:active,
+button:active {
+  background-image: linear-gradient(#131313, #2a2a2a);
+}
+
+input[type="button" i]:disabled {
+  cursor: not-allowed;
+
+  &:hover {
+    border: 1px solid #000000;
+    border-bottom: 1px solid #1d1d1d;
+  }
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ng-touched.ng-invalid-required,
+.ng-touched.ng-invalid,
+.ng-dirty.ng-invalid,
+.ng-submitted input.ng-invalid {
+  border-color: #cc2626;
+}
+
+.ng-touched.ng-valid-required,
+.ng-touched.ng-valid {
+  border-color: #217926;
+}
+
+a {
+  text-decoration: none;
+  color: #cecece;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+svg {
+  height: 35px;
+  width: 35px;
+  fill: #cecece;
+}
+
+svg:hover {
+  fill: #8e9cc3;
+}
+
+.error-text {
+  color: #999;
+  font-family: monospace;
+}
+
+.grid {
+  display: grid;
+}
+
+.green {
+  color: #217926 !important;
+}
+
+.red {
+  color: #cc2626 !important;
+}
+
+.loading {
+  margin-top: 25px;
+}
+
+.p-rel {
+  position: relative;
+}
+
+.modal-dialog {
+  margin: 0;
+}
+
+.ql-toolbar.ql-snow {
+  background-image: linear-gradient(#2a2a2a, #131313);
+}
+
+.ql-snow .ql-stroke {
+  stroke: #cecece;
+}
+
+.ql-editor {
+  background-color: white;
+  height: 300px;
+  p {
+    color: black;
+    font-size: 17px;
+    font-family: "Roboto", sans-serif;
+  }
+}

@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { MenuComponent } from './components/menu/menu.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MenuComponent],
+  imports: [
+    RouterOutlet, 
+    NavigationComponent,
+    AuthComponent  
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
