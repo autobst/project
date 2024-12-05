@@ -2,9 +2,11 @@ import { Component, Input } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { AutofocusDirective } from '../../directives/autofocus.directive';
+
 @Component({
   selector: 'app-modal',
-  imports: [BrowserModule],
+  imports: [BrowserModule, AutofocusDirective],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss'
 })

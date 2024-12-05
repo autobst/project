@@ -1,1 +1,12 @@
-<p>navigation works!</p>
+<ul>
+    <li *ngIf="!(isLogin$ | async)"><a (click)="openAuth()">Авторизація</a></li>
+    <li *ngIf="isLogin$ | async" class="p-rel">
+      <a (click)="showHideSubMenu = !showHideSubMenu" [ngClass]="{'menu-active': showHideSubMenu}">{{name$ | async}}</a>
+      <div *ngIf="showHideSubMenu" class="auth-menu">
+        <div *ngIf="isAdmin$ | async" class="auth-menu-row">
+          <a routerLinkActive="menu-active" [routerLink]="['add']" (click)="this.showHideSubMenu = false;">Додати</a>
+        </div>
+        <div class="auth-menu-row"><a [routerLink]="['']" (click)="exit()">Вихід</a></div>
+      </div>
+    </li>
+  </ul>

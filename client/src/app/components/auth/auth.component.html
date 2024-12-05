@@ -1,1 +1,53 @@
-<p>auth works!</p>
+<div class="auth-container" *ngIf="isShowAuth$ | async" (mousedown)="hide()" tabindex="0">
+    <div class="form" appMousedownStop>
+      <div class="header">{{currentTab.tab.name}}</div>
+      <div class="body">
+        <form [formGroup]="form" (ngSubmit)="submit()" (keydown.enter)="submit()">
+          <input type="text" class="inputs" placeholder="ім'я" formControlName="userName" autocomplete="off">
+          <div *ngIf="form.get('userName')?.invalid && (form.get('userName')?.touched || form.get('userName')?.dirty)"
+               class="validate">
+            <span *ngIf="form.get('userName')?.errors?.['required']" class="error-text">Пусте поле</span>
+            <span *ngIf="form.get('userName')?.errors?.['minlength']" class="error-text">Мінімум 3 символи</span>
+          </div>
+          <div *ngIf="(isActive(loginTabs.login) || isActive(loginTabs.register))" class="grid">
+            <input type="password" class="inputs"
+                   placeholder="пароль" formControlName="password" autocomplete="off">
+            <div *ngIf="form.get('password')?.invalid && (form.get('password')?.touched || form.get('password')?.dirty)"
+                 class="validate">
+              <span *ngIf="form.get('password')?.errors?.['required']" class="error-text">Пусте поле</span>
+              <span *ngIf="form.get('password')?.errors?.['minlength']" class="error-text">Мінімум 3 символи</span>
+            </div>
+          </div>
+          <div *ngIf="isActive(loginTabs.register)" class="grid">
+            <input type="password" class="inputs"
+                   placeholder="підтвердження пароля" formControlName="confirmPassword" autocomplete="off">
+            <div
+              *ngIf="form.get('confirmPassword')?.invalid && (form.get('confirmPassword')?.touched || form.get('confirmPassword')?.dirty)"
+              class="validate">
+              <span *ngIf="form.get('confirmPassword')?.errors?.['required']" class="error-text">Пусте поле</span>
+              <span *ngIf="form.get('confirmPassword')?.errors?.['minlength']" class="error-text">Мінімум 3 символи</span>
+            </div>
+          </div>
+          <div *ngIf="isActive(loginTabs.register) || isActive(loginTabs.remind)" class="grid">
+            <input type="text" class="inputs"
+                   placeholder="слово-ключ" formControlName="keyword" autocomplete="off">
+            <div *ngIf="form.get('keyword')?.invalid && (form.get('keyword')?.touched || form.get('keyword')?.dirty)"
+                 class="validate">
+              <span *ngIf="form.get('keyword')?.errors?.['required']" class="error-text">Пусте поле</span>
+              <span *ngIf="form.get('keyword')?.errors?.['minlength']" class="error-text">Мінімум 3 символи</span>
+            </div>
+          </div>
+          <div class="navi-buttons">
+            <span *ngIf="isActive(loginTabs.login) || isActive(loginTabs.register)" class="func-text"
+                  (click)="openRemindPage()">{{loginTabs.remind.name}}</span>
+            <span *ngIf="isActive(loginTabs.login) || isActive(loginTabs.remind)" class="func-text"
+                  (click)="openRegisterPage()">{{loginTabs.register.name}}</span>
+            <span *ngIf="isActive(loginTabs.register) || isActive(loginTabs.remind)" class="func-text"
+                  (click)="openLoginPage()">{{loginTabs.login.name}}</span>
+            <button type="submit">{{currentTab.tab.button}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
